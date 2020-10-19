@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <!--Donate Page-->
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="donation-form-section">
+            <label class="donation-heading">Please select donation amount</label>
+            <fieldset data-role="controlgroup" data-type="horizontal" id="radio-container">
+                <input type="radio" name="amount" id="d10" value="10" />
+                    <label for="d10">$10</label>
+                <input type="radio" name="amount" id="d20" value="20" />
+                    <label for="d20">$20</label>
+                <input type="radio" name="amount" id="d50"  checked="checked" value="50" />
+                    <label for="d50">$50</label>
+                <input type="radio" name="amount" id="d100" value="100" />
+                    <label for="d100">$100</label>
+            </fieldset>
+            <label class="donation-heading">...or enter other amount</label>
+            <input id="customAmount" name="amount" value="" type="text" autocomplete="off" placeholder="$" />
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-id="persistent-footer">
+            <div data-role="navbar" class="ssc-navbar">
+                <ul>
+                    <li>
+                        <a href="about.html" data-iconshadow="false" data-icon="info-sign" data-transition="slideup">About</a>
+                    </li>
+                    <li>
+                        <a href="#" data-iconshadow="false" data-icon="heart" data-transition="slideup">Donate</a>
+                    </li>
+                    <li>
+                        <a href="stats.html" data-iconshadow="false" data-icon="bar-chart" data-transition="slideup">Stats</a>
+                    </li>
+                    <li>
+                        <a href="events.html" data-iconshadow="false" data-icon="map-marker" data-transition="slideup">Events</a>
+                    </li>
+                    <li>
+                        <a href="media.html" data-iconshadow="false" data-icon="film" data-transition="slideup">Media</a>
+                    </li>
+                    <li>
+                        <a href="share.html" data-iconshadow="false" data-icon="share" data-transition="slideup">Share</a>
+                    </li>
+                </ul>
+                </div><!--/navbar-->
+            </div><!--/footer-->
+    </body>
+</html>
