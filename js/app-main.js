@@ -2,7 +2,65 @@ $(document).on('pagebeforeshow', function() {
 	// Overwrite jQM limits "No more than 5 items per line in navbar"
 	$(".ssc-navbar > ul").removeClass("ui-grid-a");
 
+	if (typeof(Storage)!= "undefined") {
+		var loginVal = localStorage.sscLogin;
+
+	if (loginVal == "logged") {
+		$('.login-btn').css('display','none');
+		$('.logout-btn').css('display', 'block');
+	}
+	else {
+		$('.login-btn').css('display', 'block');
+	}
+	} else {
+		console.log('No web storage support...');
+	}
 });
+
+function logIn(event) {
+	event.preventDefault();
+	var userNameValue = $('#username').val();
+	var userNameValueLength = userNameValue.length;
+	var userPasswordValue = $('#password').val();
+	var userPasswordValueLength = userPasswordValue.length;
+	// check credentials
+	if (userNameValueLength == 0 || userPasswordValueLength == 0) {
+		if (userNameValueLength == 0) {
+			$('#error-message').text('Username is empty');
+		}
+		if (userPasswordValueLength == 0) {
+			$('#error-message').text('Password is empty');
+		}
+		if (userNameValueLength == 0 && userPasswordValueLength == 0) {
+			$('#error-message').text('Username and Password are empty');
+		}
+		$('#login-submit').parent().removeClass('ui-btn-active');
+		$('[type="submit"]').button('refresh');
+	}
+	else if (userNameValue != 'admin' || userPasswordValue != '1234') {
+		$('error-message').text('Username or password is invalid');
+	}
+	else if (userNameValue == 'admin' && userPasswordValue == '1234') {
+		$('.login-btn').css('display', 'none');
+		$('.logout-btn').css('display', 'block');
+		localStorage.sscLogin = "logged";
+		history.back();
+	}
+}
+
+$('#login-submit').on('click', logIn);
+
+$(document).on('pageshow', "#Donate", function() {
+
+}
+
+$(document).on('pageshow', "#Stats", function() {
+
+}
+
+$(document).on('pageshow', "#Events", function() {
+
+}
 
 $(document).on('pageshow', function() {
 	// Set equal height for items on "about" page
